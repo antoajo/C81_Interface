@@ -36,7 +36,7 @@ program demo2
   airfoil_name = 'NACA6403_Re20k'
 
   ! Copy values from read array to variables
-  MaL = (/0.0, 0.5, 0.9/)
+  MaL = (/0.0, 0.1, 0.2/)
   MaD = MaL
   MaM = MaL
 
