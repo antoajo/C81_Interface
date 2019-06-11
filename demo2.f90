@@ -36,7 +36,7 @@ program demo2
   airfoil_name = 'NACA6403_Re20k'
 
   ! Copy values from read array to variables
-  MaL = (/0.0, 0.1, 0.2/)
+  MaL = (/0.0, 0.1, 0.2/) ! in fortran, arrays start with curved bracket ( and slash /, and end with /)
   MaD = MaL
   MaM = MaL
 
