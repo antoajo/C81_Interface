@@ -13,20 +13,35 @@ program demo1
 !  character(len=30) :: airfoil_name
 !  real, allocatable, dimension(:) :: MaL, MaD, MaM
 !  real, allocatable, dimension(:) :: AL, AD, AM
-!  real, allocatable, dimension(:,:) :: CL, CD, CM
+  real, allocatable, dimension(:,:) :: CL, CD, CM
   real, dimension(rows,cols) :: A
 
 
+
+! Allocate
+  !allocate(MaL(nMach))
+  !allocate(MaD(nMach))
+  !allocate(MaM(nMach))
+  !allocate(AL(rows))      
+  !allocate(AD(rows))      
+  !allocate(AM(rows))
+  allocate(CL(rows,nMach)) 
+  allocate(CD(rows,nMach)) 
+  allocate(CM(rows,nMach))
+  
+
   ! Read airfoil data from C81 file
 !  call readC81('Samples/sample1.C81',airfoil_name,MaL,AL,CL,MaD,AD,CD,MaM,AM,CM)
-
+                                                                                        
   ! Write airfoil data to C81 file
 !  call writeC81('Samples/sampleOutput.C81',airfoil_name,MaL,AL,CL,MaD,AD,CD,MaM,AM,CM)
 
   ! Demo of subroutine to read tabular data from csv file to Fortran array
   ! Works similar to dlmread() from Matlab
   ! Useful for creating arrays from airfoil data in CSV format
+
   A=getTable('Samples/sample1.csv',rows,cols)
   print*,A
+
 
 end program demo1

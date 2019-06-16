@@ -1,15 +1,17 @@
-! This program reads the E387_Re10k_JohnMcArthur.csv and writes it to E387_Re10k.C81
-! an output file naca6403_Re20k.C81. Both files are in the Samples/ directory.
+! This program is for creating c81 file for airfoil with only single mach number data available
+! The program reads the .csv file and writes it to .C81 with the same data repeated for all mach numbers
+! The csv input file must have 6 cols in the order--> AoA,Cl,AoA,Cd,AoA,Cm
+! an output file .C81 is created in the Airfoil_data/ directory.
 
-program c81_builder
+program c81_builder_1mach
 
   use libC81
   implicit none
 
-  integer, parameter :: rows = 28
-  integer, parameter :: cols = 4
+  integer, parameter :: rows = 35
+  integer, parameter :: cols = 6
   integer, parameter :: nMach = 10
-  integer :: i
+  integer :: i,j
 
   character(len=30) :: airfoil_name
   real, allocatable, dimension(:) :: MaL, MaD, MaM
@@ -57,4 +59,4 @@ program c81_builder
   ! Write airfoil data to C81 file
   call writeC81('Airfoil_data/E387/E387_Re10k.C81',airfoil_name,MaL,AL,CL,MaD,AD,CD,MaM,AM,CM)
 
-end program c81_builder
+end program c81_builder_1mach
