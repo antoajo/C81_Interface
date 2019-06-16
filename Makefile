@@ -11,9 +11,9 @@ demo1:
 	make lib
 	$(FC) demo1.f90 libC81.o -o demo1.out
 
-demo2:
-	make lib
-	$(FC) demo2.f90 libC81.o -o demo2.out
+c81_builder:
+	     make lib
+	     $(FC) c81_builder.f90 libC81.o -o c81_builder.out
 
 clean:
 	rm -f *.o *.mod *.out
